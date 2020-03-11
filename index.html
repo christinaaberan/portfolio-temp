@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta content="width=device-width" name="viewport">
+  <meta charset="utf-8">
+  <title>Christina Beran</title>
+  <meta content="Christina Beran's Web Portfolio" name="description">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <meta content="summary_large_image" name="twitter:card">
+  <meta content="Christina Beran's portfolio site" name="twitter:title">
+  <meta content="Hello!" name="twitter:description">
+  <meta content="http://christinaberan.com/head.png" name="twitter:image">
+  <script src="js/angular.min.js"></script>
+  <script src="js/angular-sanitize.min.js"></script>
+  <script src="js/wow.js"></script>
+  <link href="http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz|Muli:200,400" rel="stylesheet" type="text/css">
+  <link href="css/animate.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href='favicon.ico' rel='shortcut icon' type='image/x-icon'>
+  <script src="https://use.fontawesome.com/f3f668772b.js">
+  </script>
+  <style>
+
+      .l-section:last-of-type::before {
+        content: ' ';
+        position: absolute;
+        display: block;
+        top: -100px;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 18px 40vw 85px 60vw!important;
+        border-color: transparent transparent #e4edf1 transparent;
+        z-index: -1;
+      }
+      .fa-envelope {font-size: 35px; color: black;}
+    @media screen and (max-width: 959px){
+      .thumb {
+        background-size: cover;
+      }
+      [class*='col-'] {
+        margin-right: 0;
+      }
+      .hero {height: 50vh;}
+      .hero .hero-wrap {padding: 5.5rem 1em;}
+      .hero h2 {font-size: 2em;}
+    }
+    @media screen and (min-width: 960px){
+        .hero {height: 78vh;}
+        .social-media .l-constrain {
+          display: flex;
+          align-items:center;
+          justify-content: center;
+        }
+        .social-media .l-constrain a {
+          margin: 0 1em;
+        }
+    }
+     .modal button{border:none;position:absolute;right:0;top:0}.modal-dialog{width:90vw;max-width:1200px;margin:auto}.container,.modal img{width:100%}.modal-content button{z-index:99999999999}#other a,#other p{z-index:1}.modal button{font-size:2em}.modal{z-index:9999999;text-align:center;}.modal-content{padding:10px}.modal img{margin:auto;max-width:750px}
+     .hero-content {padding-top: 0;}
+     svg.name {max-width: 750px!important;}
+     .main-navigation.sticky{
+      background: #e4edf1e6;
+    box-shadow: none;
+     }
+    p {font-size: 1.15rem;}
+    
+  </style>
+
+</head>
+<body ng-app="myPortfolio">
+<header class="hero" id="home">
+    <!--<div class="parallax wow fadeInUp" data-wow-delay=".45s" data-wow-duration="1.25s">
+        <div id="animate-area" class="parallax__layer parallax__layer--base"></div>
+        <div id="animate-areabg" class="parallax__layer parallax__layer--back"></div>
+    </div>-->
+    <div class="hero-wrap l-section">
+      <div class="hero-content">
+        <svg class="name" viewBox="0 0 950 250" style="max-width:950px;">
+          <text text-anchor="middle" x="50%" y="90%">Christina Beran</text>
+        </svg>
+        <h2>web development <span>&amp;</span> design</h2>
+        <input id="navigation" type="checkbox"> <label for="navigation">+</label>
+        <nav class="main-navigation">
+          <ul>
+            <li>
+              <a href="#web">Web Projects<span></span></a>
+            </li>
+            <li>
+              <a href="#about">About Me<span></span></a>
+            </li>
+            <li>
+              <a href="#contact">Contact<span></span></a> 
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+<div id="wrapper" ng-controller="mainController">
+<section class="l-section" id="web">
+  <div class="row align-center l-constrain">
+    <div class="col-12-sm col-6 portfolio-item wow fadeInUp" data-wow-duration=".4s" ng-repeat="x in sites"  ng-class-odd="'odd'" ng-class-even="'even'">
+        <div class="overlay">
+          <div class="overlay-wrap">
+            <p><strong>{{ x.projectname }}</strong></p>
+            <hr>
+            <p>{{ x.previewblurb }}</p>
+            <a class="portfolio-link button" data-toggle="modal" href="#{{ x.modalid }}" id="btnrugcare">View Details<span></span></a>
+          </div>
+        </div>
+        <div class="thumb" style="background-image:url(' {{ x.thumb }} ');"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="l-section" id="about">
+  <div class="row l-constrain-tighter">
+    <div class="row">
+      <div class="col-8">
+        <h2 class="sectionname">
+        Hello!
+      </h2>
+          <p>
+          I am a professional web developer / designer with a background in digital and multimedia design.
+          I draw from experience in both the technical and creative, and merge solid  <span onmouseover="changeShape(arr2)">front-end</span> skills with skills in <span onmouseover="changeShape(arr3)">layout design</span> and <span onmouseover="changeShape(arr4)">motion graphics</span> while bringing a drive to always learn more.<br>
+
+          </p>
+          <a class="button" target="_blank" href="cberan-resume.pdf" download>View my Resume</a>
+          <p><br><br></p>
+      </div>
+      <div class="col-4">
+        <div class="window">
+          <img src="images/me.gif">
+          <span class="circle movie default" id="c1">
+</span>
+          <span class="circle movie2 default" id="c1">
+</span>
+          <span class="circle movie3 default" id="c1">
+</span>
+          <span class="circle movie4 default" id="c1">
+</span>
+        </div>
+      </div>
+       
+  </div>
+    </div>
+  </section>
+
+  <section class="l-section" id="contact">
+    <div class="row align-center l-constrain">
+      <div class="col-5">
+        <h2 class="sectionname" style="text-align: center">Get in Touch!</h2>
+        <div class="social-media">
+          <div class="l-constrain" style="text-align:center;">
+            <a href="mailto:christinaaberan@gmail.com" title="christinaaberan@gmail.com" target="_blank"><i class="fa fa-envelope"></i>
+            </a>
+            <a style="width:32px;height:32px;background-image:url('images/sprite.svg');background-position: 0 -32px;display:inline-block;margin:0 .75em;" href="https://www.linkedin.com/in/christina-beran-296848b9/" target="_blank">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div aria-hidden="true" ng-repeat="x in sites" class="portfolio-modal modal fade" id="{{ x.modalid }}" role="dialog" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button class="btn btn-default" data-dismiss="modal" type="button"><i class="fa fa-times"></i></button>
+        <div class="l-constrain-tighter">
+          <div class="row space-around">
+            <div class="col-lg-12">
+              <div class="modal-body">
+                <img alt="" class="img-responsive img-centered" src="{{ x.detailimg }}">
+                <h2 class="modal-title">{{ x.projectname }}</h2>
+                <div class="row">
+                  <div class="overview col-4" style="text-align:left;">
+                    <p><strong>Categories</strong><br>
+                    <i>{{ x.categories }}</i></p>
+                    <p><strong>Tools Used</strong><br>
+                    <i>{{ x.tools }}</i></p>
+                  </div>
+                  <div class="details col-8">
+                    <p>
+                      {{ x.description }}
+                    </p>
+                    
+                    <div class="list-inline item-details">
+                      <a class="button" href="{{ x.pageurl }}">View Live Site<span></span></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  
+  </footer>
+  <script>
+    var app = angular.module("myPortfolio", ["ngSanitize"]);
+    app.controller("mainController", function($scope) {
+      $scope.sites = [
+        {   projectname: 'Colgate Portal',
+            previewblurb: 'HTML5 - CSS3 - Javascript',
+            thumb: "images/colgate-thumbnail.png",
+            pageurl: "http://dcsdesign.com",
+            modalid: "portfolioModalColgate",
+            detailimg:"images/colgate.png",
+            categories:"Development",
+            tools:"HTML, CSS, Javascript, API Integration",
+            description: "Developed coupon portal based on client's design comps. Integrated with the client's API to enhance security."
+        },
+        {   projectname: 'DCS Design',
+            previewblurb: 'HTML5 - CSS3 - Javascript - Wordpress',
+            thumb: "images/dcs-thumbnail.jpg",
+            pageurl: "http://dcsdesign.com",
+            modalid: "portfolioModalDCS",
+            detailimg:"images/dcs.png",
+            categories:"Development, Template Building",
+            tools:"HTML, CSS, Javascript/jQuery, ExpressionEngine, Adobe CC",
+            description: "Developed website for architecture and interior design firm. Developed site using HTML, CSS and JS which was then translated into a Wordpress template that the client could easily add content to."
+        },
+        {   projectname: 'Homesite Cabinetry',
+            previewblurb: 'HTML5 - CSS3 - Javascript - PHP',
+            thumb: "images/home-site.jpg",
+            pageurl: "http://homesitecabinetry.com",
+            modalid: "portfolioModal3",
+            detailimg:"images/hs-details.png",
+            categories:"Development, Maintenance",
+            tools:"HTML, CSS, Javascript/jQuery, PHP",
+            description: "Developed homepage, contact form, login page and dealer-only page for cabinetry company."
+        },
+        {   projectname: 'Design Insights',
+            previewblurb: 'Responsive Design - CMS (Expression Engine)',
+            thumb: "images/designinsights.jpg",
+            pageurl: "https://waypointlivingspaces.com/design-insights",
+            modalid: "portfolioModal3",
+            detailimg:"images/di-details.png",
+            categories:"Responsive Design, Content Maintenance",
+            tools:"HTML, CSS, ExpressionEngine",
+            description: "Adapted layout for responsiveness, populated content via Expression Engine."
+        },
+      ]
+     
+    });
+  
+  </script>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+  </script> 
+  <script src="js/bootstrap.min.js">
+  </script>  
+  <script src="js/script.js">
+  </script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/randomcolor/0.5.2/randomColor.js"></script>
+
+  <script src="js/wow.min.js"></script>
+              <script>
+              new WOW().init();
+              </script>
+  <script>
+
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-83637870-1', 'auto');
+        ga('send', 'pageview');
+  </script> 
+  <script>
+
+       $(document).ready(function() { 
+        var portfolioItem = document.querySelectorAll(".even");
+       for (var e=0; e<portfolioItem.length; e++){
+          portfolioItem[e].setAttribute("data-wow-delay", ".25s");
+          console.log(portfolioItem.length);
+       }
+        var myElements = document.querySelectorAll(".circle > .fa");
+ 
+for (var i = 0; i < myElements.length; i++) {
+    myElements[i].style.color = randomColor();
+}
+        $('.main-navigation > ul > li > a[href*="#"]:not([href="#"])').click(function() {
+       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+         var target = $(this.hash);
+         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+         if (target.length) {
+           $('html, body').animate({
+             scrollTop: target.offset().top
+           }, 1000);
+           return false;
+         }
+       }
+     });
+      /* var stickyNavTop = $('.main-navigation').offset().top;
+       var stickyNav = function(){
+       var scrollTop = $(window).scrollTop();
+       if (scrollTop > stickyNavTop) {
+          $('.main-navigation').addClass('sticky');
+       } else {
+          $('.main-navigation').removeClass('sticky');
+       }
+       };
+       stickyNav();
+       $(window).scroll(function() {
+        stickyNav();
+       });
+       });*/
+       
+  </script>
+  
+</body>
+</html>
